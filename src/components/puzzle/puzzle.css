@@ -1,0 +1,73 @@
+.puzzleContainer {
+  max-width: 500px;
+  user-select: none;
+}
+
+.cell {
+  border: 1px solid black;
+}
+
+.candidate {
+  border: 1px solid black;
+  background-color: palegoldenrod;
+}
+
+.cell, .candidate, .solved {
+  height: 50px;
+}
+
+.spacer {
+  height: 25px;
+}
+
+.top-border {
+  border-top: 2px solid black;
+}
+
+.bottom-border {
+  border-bottom: 2px solid black;
+}
+
+.left-border {
+  border-left: 2px solid black;
+}
+
+.right-border {
+  border-right: 2px solid black;
+}
+
+.val {
+  font-weight: bold;
+  font-size: 28px;
+  color: black;
+  text-align: center;
+}
+
+.preset {
+  font-weight: bold;
+  font-size: 28px;
+  color: darkblue;
+  text-align: center;
+}
+
+.corner {
+  font-weight: normal;
+  font-size: 12px;
+  color: black;
+  text-align: left;
+}
+
+.center {
+  font-weight: normal;
+  font-size: 12px;
+  color: black;
+  text-align: center;
+  padding-top: 12px;
+}
+
+.rulesTemp {
+  text-align: left;
+  border: 2px solid black;
+  min-height: 100px;
+  background-color: lightgrey;
+}
