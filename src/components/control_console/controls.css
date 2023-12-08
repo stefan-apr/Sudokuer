@@ -44,11 +44,42 @@
   border: 2px solid black;
 }
 
+.greyed {
+  background-color: rgb(224, 222, 222);
+}
+
 #corner {
   border-left: 0px;
   border-right: 0px;
 }
 
+.currentlySelected {
+  background-color: rgb(224, 222, 222);
+}
+
 .pencilMarkBtn {
   font-size: 10pt;
+}
+
+.val {
+  font-weight: bold;
+  font-size: 28px;
+  color: black;
+  text-align: center;
+}
+
+.corner {
+  font-weight: normal;
+  font-size: 12px;
+  color: black;
+  text-align: right;
+  padding-right: 12px;
+}
+
+.center {
+  font-weight: normal;
+  font-size: 12px;
+  color: black;
+  text-align: center;
+  padding-top: 12px;
 }

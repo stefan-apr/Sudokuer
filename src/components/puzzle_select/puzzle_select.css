@@ -1,0 +1,35 @@
+.puzzleSelectContainer {
+  max-width: 700px;
+}
+
+.spacer {
+  height: 25px;
+}
+
+.puzzSelector {
+  border: 3px solid black;
+  margin-bottom: 20px;
+  min-height: 120px;
+}
+
+.hovered {
+  background-color: aliceblue;
+}
+
+.puzzRules {
+  text-align: left;
+  font-size: 14pt;
+}
+
+.puzzName {
+  text-align: left;
+  font-size: 18pt;
+}
+
+#puzz_select_header {
+  text-align: left;
+}
+
+a.hover:hover {
+  text-decoration: underline;
+}
