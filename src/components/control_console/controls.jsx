@@ -7,8 +7,7 @@ import './controls.css';
 
 //Import components
 
-
-function Controls() {
+function Controls(props) {
   const [state, dispatch] = React.useContext(UserContext);
   const [seconds, updateSeconds] = useState(0);
   const [initialTime, updateInitialTime] = useState(Date.now());
@@ -66,7 +65,13 @@ function Controls() {
           <Row>
             {['1', '2', '3'].map((cell, i) => {
               return(
-                  <Col className="consoleCell space" 
+                  <Col 
+                    className={state.shiftHeld
+                      ? "consoleCell space corner" 
+                      : state.ctrlHeld 
+                        ? "consoleCell space center"
+                        : "consoleCell space val"
+                    }
                     key={'cell_' + cell}
                     onClick={() => {
                       console.log(cell);
@@ -78,7 +83,13 @@ function Controls() {
           <Row>
             {['4', '5', '6'].map((cell, i) => {
               return(
-                  <Col className="consoleCell space" 
+                  <Col 
+                    className={state.shiftHeld
+                      ? "consoleCell space corner" 
+                      : state.ctrlHeld 
+                        ? "consoleCell space center"
+                        : "consoleCell space val"
+                    }
                     key={'cell_' + cell}
                     onClick={() => {
                       console.log(cell);
@@ -90,7 +101,13 @@ function Controls() {
           <Row>
               {['7', '8', '9'].map((cell, i) => {
                 return(
-                    <Col className="consoleCell space" 
+                    <Col 
+                      className={state.shiftHeld
+                        ? "consoleCell space corner" 
+                        : state.ctrlHeld 
+                          ? "consoleCell space center"
+                          : "consoleCell space val"
+                      }
                       key={'cell_' + cell}
                       onClick={() => {
                         console.log(cell);
@@ -106,19 +123,38 @@ function Controls() {
       </Row>
       <br />
       <Row className="row justify-content-md-center">
-        <Col className='col-4 pencilMarkBtn'>Value</Col>
-        <Col className='col-4 pencilMarkBtn' id='corner'>Corner</Col>
-        <Col className='col-4 pencilMarkBtn'>Center</Col>
+        <Col className={!state.shiftHeld && !state.ctrlHeld ? 'col-4 pencilMarkBtn currentlySelected' : 'col-4 pencilMarkBtn'}>Value</Col>
+        <Col className={state.shiftHeld ? 'col-4 pencilMarkBtn currentlySelected' : 'col-4 pencilMarkBtn'} id='corner'>Corner</Col>
+        <Col className={state.ctrlHeld && !state.shiftHeld ? 'col-4 pencilMarkBtn currentlySelected' : 'col-4 pencilMarkBtn'}>Center</Col>
       </Row>
       <br />
       <Row>
-        <Col className='col-5 undoredo'>Undo</Col>
+        <Col className={props.solutionStackIndex > 1 ? 'col-5 undoredo' : 'col-5 undoredo greyed'}
+          onClick={() => {
+            if(props.solutionStackIndex > 1) {
+              props.setSolutionStackIndex(props.solutionStackIndex - 1);
+              props.setClickedUndoRedo(true);
+            }
+          }}
+        >Undo</Col>
         <Col className='col-2'></Col>
-        <Col className='col-5 undoredo'>Redo</Col>
+        <Col className={props.solutionStackIndex < props.solutionStack.length ? 'col-5 undoredo' : 'col-5 undoredo greyed'}
+          onClick={() => {
+            if(props.solutionStackIndex < props.solutionStack.length) {
+              props.setSolutionStackIndex(props.solutionStackIndex + 1);
+              props.setClickedUndoRedo(true);
+            }
+          }}
+        >Redo</Col>
       </Row>
       <br />
       <Row>
-        <Col className='col-12 clear'>Clear</Col>
+        <Col 
+          className='col-12 clear'
+          onClick={() => {
+            dispatch({type: "clear_puzzle", payload: true});
+          }}
+        >Clear</Col>
       </Row>
       <br />
     </Container>

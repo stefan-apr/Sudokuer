@@ -5,15 +5,40 @@ export const reducer = (state, action) => {
         ...state,
         selected: action.payload
       }
-    case "update_puzzle":
+    case "latest_puzzle_state":
       return {
         ...state,
-        puzzle: action.payload
+        latestPuzzleState: action.payload
       }
     case "solved_puzzle":
       return {
         ...state,
         solvedPuzzle: action.payload
+      }
+    case "shift_held":
+      return {
+        ...state,
+        shiftHeld: action.payload
+      }
+    case "ctrl_held":
+      return {
+        ...state,
+        ctrlHeld: action.payload
+      }
+    case "clear_puzzle":
+      return {
+        ...state,
+        clearPuzzle: action.payload
+      }
+    case "local_nav":
+      return {
+        ...state,
+        local_nav: action.payload
+      }
+    case "selected_type":
+      return {
+        ...state,
+        selectedType: action.payload
       }
 
     default:
@@ -23,6 +48,11 @@ export const reducer = (state, action) => {
 
 export const initialState = {
   selected: [],
-  puzzle: [],
-  solvedPuzzle: false
+  latestPuzzleState: [],
+  solvedPuzzle: false,
+  shiftHeld: false,
+  ctrlHeld: false,
+  clearPuzzle: false,
+  local_nav: 'ruleset',
+  selectedType: ''
 }

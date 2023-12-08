@@ -7,6 +7,11 @@
   border: 1px solid black;
 }
 
+.magic-square {
+  border: 1px solid black;
+  background-color:rgb(174, 212, 248);
+}
+
 .candidate {
   border: 1px solid black;
   background-color: palegoldenrod;
@@ -54,7 +59,7 @@
   font-weight: normal;
   font-size: 12px;
   color: black;
-  text-align: left;
+  text-align: right;
 }
 
 .center {

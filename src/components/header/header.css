@@ -2,3 +2,16 @@
   height: 25px;
   text-align: right;
 }
+
+#back_button {
+  text-align: left;
+}
+
+.hide {
+  display: none;
+}
+
+.compPercent {
+  color:rgb(214, 43, 43);
+  margin-top: 30px;
+}
